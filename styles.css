@@ -86,20 +86,13 @@ a {
   margin-bottom: 32px;
 }
 .contact-card__row--office {
-  grid-template-columns: max-content auto;
-  column-gap: 24px;
-  align-items: start;
+  gap: 10px;
 }
-.contact-card__row--office > div {
-  display: contents;
-}
-.contact-card__row--office .contact-card__label {
-  grid-column: 1;
-  grid-row: 1;
-}
-.contact-card__row--office strong {
-  grid-column: 1/-1;
-  grid-row: 2;
+.contact-card__heading {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  width: fit-content;
 }
 .contact-card__label {
   display: block;
@@ -119,8 +112,6 @@ a {
   letter-spacing: -0.05em;
 }
 .contact-card__time {
-  grid-column: 2;
-  grid-row: 1;
   color: #141724;
   font-size: 14px;
   font-weight: 500;
@@ -442,13 +433,10 @@ a {
     margin-bottom: 34px;
   }
   .contact-card__row--office {
-    grid-template-columns: 1fr;
+    gap: 10px;
   }
   .contact-card__time {
-    grid-column: auto;
-    grid-row: auto;
-    order: -1;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   .contact-card strong,
   .contact-card a:not(.social-link) {

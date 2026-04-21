@@ -104,24 +104,15 @@ a {
     margin-bottom: 32px;
 
     &--office {
-      grid-template-columns: max-content auto;
-      column-gap: 24px;
-      align-items: start;
-
-      > div {
-        display: contents;
-      }
-
-      .contact-card__label {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      strong {
-        grid-column: 1 / -1;
-        grid-row: 2;
-      }
+      gap: 10px;
     }
+  }
+
+  &__heading {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    width: fit-content;
   }
 
   &__label {
@@ -144,8 +135,6 @@ a {
   }
 
   &__time {
-    grid-column: 2;
-    grid-row: 1;
     color: $text;
     font-size: 14px;
     font-weight: 500;
@@ -509,14 +498,11 @@ a {
     }
 
     &__row--office {
-      grid-template-columns: 1fr;
+      gap: 10px;
     }
 
     &__time {
-      grid-column: auto;
-      grid-row: auto;
-      order: -1;
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
 
     strong,
