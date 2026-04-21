@@ -23,7 +23,7 @@ npm install
 npm run build:css
 ```
 
-Запустить отслеживание изменений SCSS (при изменениях в SCSS):
+Запустить отслеживание изменений SCSS:
 
 ```bash
 npm run watch:css
