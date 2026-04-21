@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Краски ремонта</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <main class="page">
+        <!-- Блок контактов с картой -->
+        <section class="contacts" aria-labelledby="contacts-title">
+          <div class="map" aria-hidden="true">
+            <img class="map__image" src="assets/map-figma.png" alt="" />
+          </div>
+
+          <article class="contact-card">
+            <h1 id="contacts-title">Контакты</h1>
+
+            <div class="contact-card__row contact-card__row--office">
+              <div>
+                <span class="contact-card__label">Адрес офиса</span>
+                <strong>г. Москва, ул. Шаболовка, д. 31г</strong>
+              </div>
+              <span class="contact-card__time">9:00-17:00</span>
+            </div>
+
+            <div class="contact-card__row">
+              <span class="contact-card__label">Телефона</span>
+              <a href="tel:+79932721771">8 993 272 17 71</a>
+            </div>
+
+            <div class="contact-card__row">
+              <span class="contact-card__label">E-mail</span>
+              <a href="mailto:welcome@kraskiremonta.ru">welcome@kraskiremonta.ru</a>
+            </div>
+
+            <div class="contact-card__row">
+              <span class="contact-card__label">Соц.Сети</span>
+              <a class="social-link" href="#" aria-label="MAX">
+                <img class="social-link__icon" src="assets/max-logo.png" alt="" />
+                MAX
+              </a>
+            </div>
+
+            <button class="button button--green" type="button" @click="openRequest('Обратный звонок')">
+              Обратный звонок
+            </button>
+          </article>
+        </section>
+
+        <!-- Карточки для партнеров -->
+        <section class="partners" aria-label="Партнерство">
+          <article class="partner-card" v-for="card in partnerCards" :key="card.title">
+            <div class="partner-card__content">
+              <h2>{{ card.title }}</h2>
+              <p>{{ card.text }}</p>
+            </div>
+
+            <div class="illustration" :class="`illustration--${card.icon}`" aria-hidden="true">
+              <img :src="card.image" alt="" />
+            </div>
+
+            <button class="button button--green" type="button" @click="openRequest(card.title)">
+              Стать партнером
+            </button>
+          </article>
+        </section>
+
+        <!-- Карточки вакансий -->
+        <section class="vacancies" aria-labelledby="vacancies-title">
+          <h2 id="vacancies-title">Вакансии</h2>
+
+          <div class="vacancies__grid">
+            <article class="vacancy-card" v-for="vacancy in vacancies" :key="vacancy.title">
+              <h3>{{ vacancy.title }}</h3>
+              <ul>
+                <li v-for="item in vacancy.items" :key="item">{{ item }}</li>
+              </ul>
+              <button class="button button--violet" type="button" @click="openVacancy(vacancy.title)">
+                Откликнуться
+              </button>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- Сообщение после клика по кнопке -->
+      <div class="toast" :class="{ 'toast--visible': toast.visible }" role="status">
+        {{ toast.message }}
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
